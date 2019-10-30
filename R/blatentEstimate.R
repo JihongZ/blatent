@@ -78,7 +78,7 @@ blatentEstimate = function(dataMat, modelText, priorsList = NULL, options = blat
       chain=1
 
       for (chain in 1:options$nChains){
-        system(paste0(options$estimatorLocation, "./GPDCMRunning '", options$fileSaveLocation, "' ", chain))
+        system(paste0(options$estimatorLocation, "GPDCMRunning '", options$fileSaveLocation, "' ", chain))
         analysisFiles = c(analysisFiles, paste0(options$fileSaveLocation, "vChain-", chain, ".csv"))
         vchain[[chain]] = read.csv(file = analysisFiles[length(analysisFiles)], header = FALSE)
 
