@@ -156,7 +156,16 @@ createFortranObjects = function(specs, options, data, variables, blankChain){
   fspecs[25] = nrow(blankChain$units)
   fspecs[26] = ncol(blankChain$units)
 
-  return(list(fspecs = fspecs, fvariables = fvariables, fpriors = fpriors, fdata = fdata, finit = finit, fmodel = fmodel, fmodelrows = fmodelrows,
-              fvchain = fvchain, fuchain = fuchain))
+  return(
+    list(
+      fspecs = fspecs,
+      fvariables = fvariables,
+      fpriors = fpriors,
+      fdata = fdata,
+      finit = finit,
+      fmodel = fmodel,
+      fmodelrows = fmodelrows
+    )
+  )
 
 }

@@ -2,6 +2,7 @@
 
 export(blatentControl)
 export(blatentEstimate)
+export(blatentPPMC)
 export(blatentSimulate)
 export(initializeSpecs)
 export(parseModelSyntax)

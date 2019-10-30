@@ -33,11 +33,15 @@
 #' @param estimator Sets the estimation algorithm to be used. Currently, only \code{"GPDCM"} (Gibbs Probit
 #'                  Diagnostic Classification Model) is allowed, which is the default value.
 #'
+#' @param estimatorLocation Sets the path to the location of estimator executable, if \code{estimatorType} is
+#'                          \code{"external"}. Currently set to only location available.
+#'
 #' @param estimatorType Sets location of estimator. Currently, only \code{"external"} (for estimation routines
 #'                      external to R) is allowed, which is the default value.
 #'
-#' @param estimatorLocation Sets the path to the location of estimator executable, if \code{estimatorType} is
-#'                          \code{"external"}. Currently set to only location available.
+#'
+#' @param fileSaveLocation Sets the path for output files used for exteneral estimation routines.
+#'                         Only used when \code{estimatorType = "external"}.
 #'
 #' @param maxTuneChains Sets the maximum number of tuning chains for MCMC sampling algorithm, if needed. Currently,
 #'                      no Metropolis steps exist in algorithm, so is unused. Defaults to \code{0}.
@@ -83,6 +87,7 @@ blatentControl <-
            estimator = "GPDCM",
            estimatorType = "external",
            estimatorLocation = "/Users/jonathantemplin/Documents/repos/blatent-main/gpdcm/",
+           fileSaveLocation = paste0(getwd(), "/"),
            maxTuneChains = 0,
            minTuneChains = 0,
            nBurnin = 1000,
@@ -101,6 +106,7 @@ blatentControl <-
         estimator = estimator,
         estimatorType = estimatorType,
         estimatorLocation = estimatorLocation,
+        fileSaveLocation = fileSaveLocation,
         maxTuneChains = maxTuneChains,
         minTuneChains = minTuneChains,
         nBurnin = nBurnin,

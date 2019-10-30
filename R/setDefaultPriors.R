@@ -16,7 +16,7 @@
 #' @return A list containing named values for each argument in the function.
 #'
 #' @export
-setDefaultPriors = function(normalMean = 0, normalVariance = 1000, normalCovariance = 0){
+setDefaultPriors = function(normalMean = 0, normalVariance = 1, normalCovariance = 0){
   defaultPriors = list(
     normalMean = normalMean,
     normalVariance = normalVariance,

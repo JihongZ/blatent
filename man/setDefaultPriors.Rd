@@ -4,7 +4,7 @@
 \alias{setDefaultPriors}
 \title{Sets the prior distribution parameters for all parameters not named in priorsList}
 \usage{
-setDefaultPriors(normalMean = 0, normalVariance = 1000,
+setDefaultPriors(normalMean = 0, normalVariance = 1,
   normalCovariance = 0)
 }
 \arguments{

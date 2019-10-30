@@ -15,11 +15,11 @@
 #' @return A list containing named values for each argument in the function.
 #'
 #' @export
-setDefaultInitializeParameters = function(normalMean = 0, normalVariance = 10, normalCovariance = 0){
+setDefaultInitializeParameters = function(normalMean = 0, normalVariance = 1, normalCovariance = 0){
   defaultInitializeParameters = list(
-    normalMean = 0,
-    normalVariance = 1,
-    normalCovariance = 0
+    normalMean = normalMean,
+    normalVariance = normalVariance,
+    normalCovariance = normalCovariance
   )
   return(defaultInitializeParameters)
 }

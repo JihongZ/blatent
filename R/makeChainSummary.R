@@ -25,7 +25,7 @@ makeChainSummary = function(chain, HPDIval = .95){
     colnames(convergenceDiagnostics$psrf) = c("PSRF", "PSRF Upper C.I.")
     chainSummary = cbind(chainSummary, convergenceDiagnostics$psrf)
   } else {
-    convergenceDiagnostics = coda::heidel.diag(parameterChain)
+    convergenceDiagnostics = coda::heidel.diag(chain)
     temp = convergenceDiagnostics[[1]][1:nrow(convergenceDiagnostics[[1]]), c(3,4)]
     colnames(temp) = c("Heidel.Diag p-value", "Heidel.Diag Htest")
     chainSummary = cbind(chainSummary, temp)

@@ -4,7 +4,7 @@
 \alias{setDefaultInitializeParameters}
 \title{Sets the distribution parameters for initializing all parameters}
 \usage{
-setDefaultInitializeParameters(normalMean = 0, normalVariance = 10,
+setDefaultInitializeParameters(normalMean = 0, normalVariance = 1,
   normalCovariance = 0)
 }
 \arguments{

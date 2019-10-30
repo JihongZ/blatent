@@ -22,9 +22,11 @@ blatentModel <-
         char.format <- paste("%", max(8L, numDigits + 5L), "s", sep = "")
 
         cat("\nParameter Estimates:");
-
-        headings = paste0(sprintf(char.format, c("Mean", "SD", "LowHPDI", "UpHDPI", "PSRF")), collapse = "")
-
+        if (self$options$nChains > 1){
+          headings = paste0(sprintf(char.format, c("Mean", "SD", "LowHPDI", "UpHDPI", "PSRF")), collapse = "")
+        } else if (self$options$nChains == 1){
+          headings = paste0(sprintf(char.format, c("Mean", "SD", "LowHPDI", "UpHDPI", "HDPV")), collapse = "")
+        }
         cat("\n")
 
         for (variable in self$specs$allVariables){
@@ -37,12 +39,17 @@ blatentModel <-
           cat(paste0(preamble, buffer, headings))
           cat("\n")
           for (param in self$variables[[variable]]$paramNames){
+
             csRow = which(rownames(self$parameterSummary) == param)
 
             preamble = paste0("  ", param, collapse = "")
             buffer = paste0(rep(" ", 80-nchar(preamble) - nchar(headings)), collapse = "")
+            if (self$options$nChains > 1){
+              paramVals = paste0(sprintf(num.format, self$parameterSummary[csRow, c("Mean", "SD", "lowerHDPI0.95", "upperHDPI950.95", "PSRF")]), collapse = "")
+            } else if (self$options$nChains == 1){
+              paramVals = paste0(sprintf(num.format, self$parameterSummary[csRow, c("Mean", "SD", "lowerHDPI0.95", "upperHDPI950.95", "Heidel.Diag p-value")]), collapse = "")
+            }
 
-            paramVals = paste0(sprintf(num.format, self$parameterSummary[csRow, c("Mean", "SD", "lowerHDPI0.95", "upperHDPI950.95", "PSRF")]), collapse = "")
             cat(paste0(preamble, buffer, paramVals, collapse = ""))
             cat("\n")
           }
